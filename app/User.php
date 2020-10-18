@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -29,11 +28,27 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * Relation betweent user to comment
      *
-     * @var array
+     * which is one to many relation
+     *
+     * because one user can make many comment
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-}
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    } //end of the comments method
+
+    /**
+     * Relation betweent user to comment
+     *
+     * which is one to many relation
+     *
+     * because one user could buy many comment
+     */
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    } //end of the tickets method
+
+} //end of the class
