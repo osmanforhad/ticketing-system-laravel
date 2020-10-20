@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('title','My Tickets')
-    
-@endsection
 
 @section('content')
 <div class="row">

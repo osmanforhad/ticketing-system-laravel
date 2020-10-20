@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('title','All Tickets')
-    
-@endsection
 
 @section('content')
     <div class="row">
@@ -39,7 +37,7 @@
                                         @if ($ticket->status === 'Open')
                                     <span class="label label-success">{{$ticket->status}}</span>
                                         @else
-                                           <span class="label label-danger">{{$ticket->status}}</span> 
+                                           <span class="label label-danger">{{$ticket->status}}</span>
                                         @endif
                                     </td>
                                 <td>{{$ticket->updated_at}}</td>
@@ -50,7 +48,7 @@
                                 {!! csrf_field() !!}
                                 <button type="submit" class="btn btn-danger">Close</button>
                                 </form>
-                                        
+
                                     @endif
                                 </td>
                                     </tr>
