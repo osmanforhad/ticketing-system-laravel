@@ -27,7 +27,7 @@
 <tbody>
     @foreach ($tickets as $ticket)
         <tr>
-        <td>{{$ticket->catgory->name}}</td>
+        <td>{{$ticket->category->name}}</td>
         <td>
         <a href="{{url('tickets/'.$ticket->ticket_id)}}">
         #{{$ticket->ticket_id}} - {{$ticket->title}}

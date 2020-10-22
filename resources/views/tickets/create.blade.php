@@ -36,12 +36,12 @@
 <div class="form-group{{$errors->has('category') ? 'has-error' : ''}}">
 <label for="category" class="col-md-4 control-label">Category</label>
 <div class="col-md-6">
-    <selet id="category" type="category" class="form-control" name="category">
+    <select id="category" type="category" class="form-control" name="category">
     <option value="">Select Category</option>
     @foreach ($categories as $category)
 <option value="{{$category->id}}">{{$category->name}}</option>
     @endforeach
-    </selet>
+    </select>
 
     @if ($errors->has('category'))
         <span class="help-block">
@@ -76,7 +76,7 @@
 <div class="col-md-6">
     <textarea rows="10" id="message" class="form-control" name="message"></textarea>
 
-    @if ($errros->has('message'))
+    @if ($errors->has('message'))
         <span class="help-block">
         <strong>{{$errors->first('message')}}</strong>
         </span>

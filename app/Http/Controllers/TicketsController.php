@@ -7,6 +7,7 @@ use App\Mailers\AppMailer;
 use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class TicketsController extends Controller
 {
@@ -68,9 +69,9 @@ class TicketsController extends Controller
 
         $ticket->save();
 
-        $mailer->sendTicketInformation(Auth::user(), $ticket);
+        //$mailer->sendTicketInformation(Auth::user(), $ticket);
 
-        return redirect()->back()->with("status", "A ticket with ID: #$ticket->ticekt_id has been opened.");
+        return redirect()->back()->with("status", "A ticket with ID: #$ticket->ticket_id has been opened.");
     } //end of the store method
 
     public function userTickets()
