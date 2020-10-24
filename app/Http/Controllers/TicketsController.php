@@ -86,9 +86,10 @@ class TicketsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($ticket_id)
     {
-        //
+        $ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
+        return view('tickets.show', compact('ticket'));
     } //end of the show method
 
 } //end of the class
