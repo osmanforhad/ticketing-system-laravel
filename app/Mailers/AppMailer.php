@@ -43,7 +43,15 @@ class AppMailer
      */
     public function sendTicketComments($ticketOwner, $user, Ticket $ticket, $comment)
     {
+        $this->to = $ticketOwner->email;
 
+        $this->subject = "RE: $ticket->title (Ticket ID: $ticket->ticket_id)";
+
+        $this->view = 'emails.ticket_comments';
+
+        $this->data = compact('ticketOwner', 'user', 'ticket', 'comment');
+
+        return $this->deliver();
     } //end of the sendTicketsComment
 
     /**
@@ -51,7 +59,15 @@ class AppMailer
      */
     public function sendTicketStatusNotification($ticketOwner, Ticket $ticket)
     {
+        $this->to = $ticketOwner->email;
 
+        $this->subject = "RE: $ticket->title (Ticket ID: $ticket->ticket_id)";
+
+        $this->view = 'emails.ticket_status';
+
+        $this->data = compact('ticktOwner', 'ticket');
+
+        return $this->deliver();
     } //end of the sendTicketStatusNotification method
 
     public function deliver()
